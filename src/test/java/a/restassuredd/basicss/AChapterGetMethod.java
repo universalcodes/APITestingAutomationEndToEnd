@@ -1,6 +1,7 @@
 package a.restassuredd.basicss;
 
 import io.restassured.RestAssured;
+import io.restassured.http.Header;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
@@ -84,7 +85,13 @@ public class AChapterGetMethod {
         System.out.println("Response Time Taken in Seconds: " + timeTakenForAPIInMinutes);
 
 
-        System.out.println("Result Based on API Responses on SOUT No Return Type is Used");
+     System.out.println("Validated Headers");
+     Headers getHeaders = validateDifferentResponse.headers();  // getStatusLine() helps to get response status line of API. Return type is String as its groups of Characters
+     System.out.println("Get Header: " + getHeaders);
+
+
+
+     System.out.println("Result Based on API Responses on SOUT No Return Type is Used");
 
         Response res = RestAssured.get();
         System.out.println("Status Code: " + res.getStatusCode());        //  returns API Response Status Code
