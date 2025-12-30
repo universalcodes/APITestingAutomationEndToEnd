@@ -91,6 +91,5 @@ Technique 2
         System.out.println("GET Status Code: " + getResponse2.getStatusCode());
         System.out.println("GET Response Body: " + getResponse2.getBody().asString());
 
-
     }
 }
