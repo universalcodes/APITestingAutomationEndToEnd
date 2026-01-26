@@ -7,7 +7,7 @@ import io.restassured.response.ResponseBody;
 
 import java.util.concurrent.TimeUnit;
 
-public class AChapterGetMethodUsingPathTechniqueTwo {
+public class AChapterGetMethodUsingQueryParamsTechniqueThree {
     public static void main(String[] args) {
 
         /*
@@ -15,8 +15,11 @@ public class AChapterGetMethodUsingPathTechniqueTwo {
         RestAssured is the class which contains different methods
         .get .post .delete .put
         // Response is the Interface which initiates the RestAssured Class
-                //.get("/students") is the inbuilt method with string argument, which helps to invoke get method of API,  string argument Defines as path -- "/students"
-        //.get() is the inbuilt method without argument, which helps to invoke get method of API where we can define path with basePath
+                //.get() is the inbuilt method without argument, which helps to invoke get method of API where we can define path with basePath
+        //.get("/students") is the inbuilt method with string argument as Resource path, which helps to invoke get method of API, string argument Defines as path -- "/students"
+//.get("students?id=1") is the inbuilt method with string argument as Query Params, which helps to invoke get method of API, string argument Defines as  query Params -- "students?id=1"
+
+         */
           /*
         Response is the interface which contains:
         getStatusCode(); returns response level status code
@@ -36,8 +39,9 @@ public class AChapterGetMethodUsingPathTechniqueTwo {
 
        RestAssured.baseURI="http://localhost:8080/";  // baseURI is the inbuilt static property of RestAssured Class which is used to set the base URI which is also called Domain
 
-        System.out.println("Validated Response Interface Object and get Method using argument ");
-        Response validateDifferentResponse = RestAssured.get("/students");
+        System.out.println("Validated Response Interface Object and get Method using Query Params");
+        Response validateDifferentResponse = RestAssured.get("students?id=1");
+
         System.out.println(validateDifferentResponse);  // Returns Response Object Reference
 
         System.out.println("Validated Content Type Response Level");
@@ -94,7 +98,7 @@ public class AChapterGetMethodUsingPathTechniqueTwo {
 
      System.out.println("Result Based on API Responses on SOUT No Return Type is Used");
 
-        Response res = RestAssured.get("/students");
+        Response res = RestAssured.get("students?id=1");
         System.out.println("Status Code: " + res.getStatusCode());        //  returns API Response Status Code
         System.out.println("Status Line: " + res.getStatusLine());        //  returns API Response Status Line
         System.out.println("Content Type: " + res.getContentType());      //  returns API Response ContentType
