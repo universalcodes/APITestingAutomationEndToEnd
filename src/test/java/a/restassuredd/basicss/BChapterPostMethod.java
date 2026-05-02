@@ -52,8 +52,10 @@ Technique 2
 
         System.out.println("Status Code: " + response.getStatusCode());  // getStatusCode() returns response status code
         System.out.println("Response Body: " + response.getBody().asString());  // asString() helps to displays actual response
+        // To Retrieve any field value is jsonPath() useful, jsonPath() is the inbuilt method of
+        // JsonPath class. getLong() used as field data type is long so return type as long
 
-        Long studentId = response.jsonPath().getLong("id"); // To Retrieve any field value is jsonPath() useful, jsonPath() is the inbuilt method of JsonPath class. getLong() used as field data type is long so return type as long
+        Long studentId = response.jsonPath().getLong("id");
         System.out.println("Auto-generated Student ID: " + studentId);
 
         // Retrieve String field value
@@ -67,8 +69,9 @@ Technique 2
 
         /* Validating Posted method Response through get Method */
 
+        //  as our id return type is long to convert long datatype value into String then (String.valueOf(studentId)) is used
 
-        Response getResponse = RestAssured.get(String.valueOf(studentId));  //  as our id return type is long to convert long datatype value into String then (String.valueOf(studentId)) is used
+        Response getResponse = RestAssured.get(String.valueOf(studentId));
         System.out.println("GET Status Code: " + getResponse.getStatusCode());
         System.out.println("GET Response Body: " + getResponse.getBody().asString());
 

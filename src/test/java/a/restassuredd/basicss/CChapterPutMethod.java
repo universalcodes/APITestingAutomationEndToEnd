@@ -49,7 +49,13 @@ Technique 2
                 .with()   // shortcut for request specification
                 .body(studentBodyPayload)
                 .header("Content-Type", "application/json")  // while put method header is mandate, without header is not possible.
-                .put("/students/{id}", 4);  // we have defined path & Unique ID is Provided to update Existing Resource
+                .put("/students/{id}", 2);  // we have defined path & Unique ID is Provided to update Existing Resource
+
+//        Response putResponse = RestAssured
+//                .with()   // shortcut for request specification
+//                .body(studentBodyPayload)
+//                .header("Content-Type", "application/json")  // while put method header is mandate, without header is not possible.
+//                .put("/students/{id}", 4);  // we have defined path & Unique ID is Provided to update Existing Resource
 
         // Another Way to get the Status Code & Response Body
         int getAPIStatusCodeValue= putResponse.getStatusCode();

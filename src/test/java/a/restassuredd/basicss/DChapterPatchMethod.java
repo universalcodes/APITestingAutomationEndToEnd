@@ -43,13 +43,13 @@ Technique 2
         //Technique 1 with Request Specification
 
         // ✅ Direct Put call without .given()
-        String studentBodyPayload = "{ \"name\": \"Sunitaa Kamra\", \"age\": 70 }";
+        String studentBodyPayload = "{ \"name\": \"Sunitaa Kamra\", \"age\": 71 }";
 
         Response putResponse = RestAssured
                 .with()   // shortcut for request specification
                 .body(studentBodyPayload)
                 .header("Content-Type", "application/json")  // while put method header is mandate, without header is not possible.
-                .put("/students/{id}", 4);  // we have defined path & Unique ID is Provided to update Existing Resource
+                .patch("/students/{id}", 2);  // we have defined path & Unique ID is Provided to update Existing Resource
 
         // Another Way to get the Status Code & Response Body
         int getAPIStatusCodeValue= putResponse.getStatusCode();

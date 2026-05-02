@@ -29,23 +29,24 @@ public class AChapterGetMethod {
          getHeader(); returns response level one Header of the API
 
          */
-
-
-
        RestAssured.baseURI="http://localhost:8080";  // baseURI is the inbuilt static property of RestAssured Class which is used to set the base URI which is also called Domain
        RestAssured.basePath="/students"; //  // basePath is the inbuilt static property of RestAssured Class which is used to set the base path.
 
+        String getFullAPIURL = RestAssured.baseURI + RestAssured.basePath;
+        System.out.println("API URL as follows:\t" + getFullAPIURL);
+
         System.out.println("Validated Response Interface Object  ");
         Response validateDifferentResponse = RestAssured.get();  // Response is the Interface which initiates the RestAssured Class //.get() is the inbuilt method which helps to invoke get method of API
-        System.out.println(validateDifferentResponse);  // Returns Response Object Reference
+
+        System.out.println("it Returns reference object of \t"+validateDifferentResponse);  // Returns Response Object Reference
 
         System.out.println("Validated Content Type Response Level");
-        String getAPIContentType = validateDifferentResponse.contentType();  // contentType() helps to Response level Content Type of the API.  Return type of contentType() is String
-        System.out.println("Get ContentType of API: " + getAPIContentType);
+        String getAPIContentTypeOne = validateDifferentResponse.contentType();  // contentType() helps to Response level Content Type of the API.  Return type of contentType() is String
+        System.out.println("Get ContentType of API: " + getAPIContentTypeOne);
 
         System.out.println("Validated Get Content Type Response Level");
-        String getAPIContentTypes = validateDifferentResponse.getContentType();  // getContentType() helps to Response level Content Type of the API.  Return type of contentType() is String
-        System.out.println("Get ContentType of API: " + getAPIContentTypes);
+        String getAPIContentTypeTwo = validateDifferentResponse.getContentType();  // getContentType() helps to Response level Content Type of the API.  Return type of contentType() is String
+        System.out.println("Get ContentType of API: " + getAPIContentTypeTwo);
 
         System.out.println("Validated One Header Response Level");
         String getAPISingleHeader = validateDifferentResponse.getHeader("Connection");  //  getHeader(String) helps to get one Header Response level of the API. In Parameter user has to pass one Header field, it returns value. In our Example id is the header field & it returns id value// Return type of getHeader("id") is String
@@ -101,7 +102,7 @@ public class AChapterGetMethod {
         System.out.println("All Headers: " + res.getHeaders());           // returns API Response All Headers
         System.out.println("Response Body Object:\n" + res.getBody()); // returns getBody Object
         System.out.println("Response Body:\n" + res.getBody().asPrettyString()); // returns API Response with Body
-//        System.out.println("Response Time (ms): " + res.getTime());       // returns API Execution Time Spent in Mili Seconds
+        System.out.println("Response Time (ms): " + res.getTime());       // returns API Execution Time Spent in Mili Seconds
         System.out.println("Response Time in (sec): " + res.getTimeIn(TimeUnit.SECONDS)); // returns API Execution Time Spent in Seconds
     }
 }

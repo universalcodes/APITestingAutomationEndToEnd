@@ -81,7 +81,7 @@ public class AChapterGetMethodUsingQueryParamsTechniqueThree {
         String getResponseBodyAsPrettyStr = validateDifferentResponse.asPrettyString();  //.asPrettyString(); is the inbuilt method where its returns' response with proper format. Return type is String  as its groups of Characters
         System.out.println("Response Body as Pretty String: " + getResponseBodyAsPrettyStr);
 
-        System.out.println("Validated Time Spent in Mili Seconds on API Execution");
+        System.out.println("Validated Time Spent in Miili Seconds on API Execution");
         long timeTakenForAPIInMS = validateDifferentResponse.getTime();  // getTime() helps to get total time execution for API Result. Return type is as long as its 64-bit Number, By Default time type is Milli Second
         System.out.println("Response Time Taken in Mili Seconds: " + timeTakenForAPIInMS);
 
@@ -89,12 +89,9 @@ public class AChapterGetMethodUsingQueryParamsTechniqueThree {
         long timeTakenForAPIInMinutes = validateDifferentResponse.getTimeIn(TimeUnit.SECONDS);  // getTime() helps to get total time execution for API Result. Return type is as long as its 64-bit Number, TimeUnit is the Enum where .SECONDS in the Enum Constant
         System.out.println("Response Time Taken in Seconds: " + timeTakenForAPIInMinutes);
 
-
      System.out.println("Validated Headers");
      Headers getHeaders = validateDifferentResponse.headers();  // getStatusLine() helps to get response status line of API. Return type is String as its groups of Characters
      System.out.println("Get Header: " + getHeaders);
-
-
 
      System.out.println("Result Based on API Responses on SOUT No Return Type is Used");
 
